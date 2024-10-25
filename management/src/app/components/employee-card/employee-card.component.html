@@ -1,0 +1,16 @@
+<div *ngIf="employee" class="employee-card mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">{{ employee.name }}'s Details</h5>
+    </div>
+    <div class="card-body">
+      <p><strong>ID:</strong> {{ employee.id }}</p>
+      <p><strong>Email:</strong> {{ employee.email }}</p>
+      <p><strong>Department:</strong> {{ employee.department }}</p>
+      <p><strong>Joining Date:</strong> {{ employee.joiningDate }}</p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary" [routerLink]="['/']">Back to Employee List</button>
+    </div>
+  </div>
+</div>

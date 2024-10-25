@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <h2>Add Employee</h2>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Department</mat-label>
+      <mat-select formControlName="department">
+        <mat-option value="HR">HR</mat-option>
+        <mat-option value="Engineering">Engineering</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Joining Date</mat-label>
+      <input matInput type="date" formControlName="joiningDate">
+    </mat-form-field>
+<div class="d-flex justify-content-between">
+  <button mat-raised-button color="primary" type="submit" class="submit-button">Add Employee</button>
+  <button mat-raised-button color="primary" [routerLink]="['/']"   class="submit-button">cencel</button>
+</div>
+
+  </form>
+</div>

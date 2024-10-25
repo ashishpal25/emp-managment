@@ -1,0 +1,56 @@
+<div class="container mt-5">
+  <h2 class="d-flex align-items-center justify-content-center">Employee List</h2>
+  <div class="d-flex justify-content-between">
+    <mat-form-field>
+      <mat-select placeholder="Filter by Department" [(value)]="departmentFilter" (selectionChange)="applyDepartmentFilter()">
+        <mat-option value="All">All</mat-option>
+        <mat-option value="HR">HR</mat-option>
+        <mat-option value="Engineering">Engineering</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [routerLink]="['/add']">Add Employee</button>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let employee"> {{employee.id}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let employee"> {{employee.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let employee"> {{employee.email}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Department </th>
+      <td mat-cell *matCellDef="let employee"> {{employee.department}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="joiningDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Joining Date </th>
+      <td mat-cell *matCellDef="let employee"> {{employee.joiningDate}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let employee">
+        <button mat-button (click)="deleteEmployee(employee.id)">Delete</button>
+        <button mat-button [routerLink]="['/detail', employee.id]">View</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
